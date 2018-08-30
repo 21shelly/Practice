@@ -7,7 +7,7 @@ public class MaximumDistance {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(3, 5, 4, 2));
+		ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(3, 2,1));
 		System.out.println(maximumGap(arr));
 
 	}
@@ -26,20 +26,18 @@ public class MaximumDistance {
 		}
 
 		int i = 0, j = 0;
-		int maxLen=1;
+		int maxLen = 0;
 		while (i < Min.length && j < Max.length) {
-			if(Min[i]<=Max[j]) {
+			if (Max[j] >= Min[i]) {
+				j++;
+			} else {
 				i++;
-			}else {
-				i++;
-				j=i;
 			}
-			int len=i-j;
-			if(len>maxLen) {
-				maxLen=len;
-			}
+			int len = j - i - 1;
+			if (len > maxLen)
+				maxLen = len;
 		}
-		
+
 		return maxLen;
 	}
 }
